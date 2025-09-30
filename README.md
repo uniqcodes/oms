@@ -27,8 +27,8 @@ A lightweight mock backend for development and testing. This service provides mo
 Clone the repo:
 
 ```bash
-git clone https://github.com/uniqcode/mock-oms.git
-cd mock-oms
+git clone https://github.com/uniqcode/oms.git
+cd oms
 npm i
 npm start
 ```
