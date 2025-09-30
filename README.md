@@ -32,7 +32,7 @@ cd mock-oms
 npm i
 npm start
 ```
-## Running with Docker (Recommended)
+Running with Docker (Recommended)
 
 ```
 docker-compose up
