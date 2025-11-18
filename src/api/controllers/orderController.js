@@ -35,7 +35,7 @@ const createOrder = (req, res) => {
       res,
       400,
       "VALIDATION_ERROR",
-      "customerId is required"
+      "customerId is required",
     );
   }
 
@@ -46,7 +46,7 @@ const createOrder = (req, res) => {
       400,
       "VALIDATION_ERROR",
       "customerId must be in format user-XXXXXXXX (e.g., user-A1B2C3D4)",
-      { providedId: customerId }
+      { providedId: customerId },
     );
   }
   const order = {
@@ -69,7 +69,7 @@ const searchOrders = (req, res) => {
       res,
       400,
       "VALIDATION_ERROR",
-      "customerId is required"
+      "customerId is required",
     );
   }
 
@@ -80,12 +80,12 @@ const searchOrders = (req, res) => {
       400,
       "VALIDATION_ERROR",
       "customerId must be in format user-XXXXXXXX (e.g., user-A1B2C3D4)",
-      { providedId: customerId }
+      { providedId: customerId },
     );
   }
 
   let results = Array.from(orders.values()).filter(
-    (order) => order.customerId === customerId
+    (order) => order.customerId === customerId,
   );
 
   // Apply date filters if provided
@@ -96,7 +96,7 @@ const searchOrders = (req, res) => {
         res,
         400,
         "VALIDATION_ERROR",
-        "Invalid startDate format"
+        "Invalid startDate format",
       );
     }
     results = results.filter((order) => new Date(order.placementDate) >= start);
@@ -109,7 +109,7 @@ const searchOrders = (req, res) => {
         res,
         400,
         "VALIDATION_ERROR",
-        "Invalid endDate format"
+        "Invalid endDate format",
       );
     }
     results = results.filter((order) => new Date(order.placementDate) <= end);

@@ -31,6 +31,6 @@ export const generateToken = (customerId) => {
       customerId,
     },
     JWT_SECRET,
-    { expiresIn: "1h" }
+    { expiresIn: "1h" },
   );
 };

@@ -1,4 +1,4 @@
-import { Router} from "express";
+import { Router } from "express";
 import { authenticateToken } from "../middleware/auth";
 import orderController from "../controllers/orderController";
 
@@ -13,22 +13,22 @@ router.get("/", authenticateToken, orderController.searchOrders);
 router.post(
   "/:orderId/paid",
   authenticateToken,
-  orderController.updateOrderStatus
+  orderController.updateOrderStatus,
 );
 router.post(
   "/:orderId/shipped",
   authenticateToken,
-  orderController.updateOrderStatus
+  orderController.updateOrderStatus,
 );
 router.post(
   "/:orderId/delivered",
   authenticateToken,
-  orderController.updateOrderStatus
+  orderController.updateOrderStatus,
 );
 router.post(
   "/:orderId/cancelled",
   authenticateToken,
-  orderController.updateOrderStatus
+  orderController.updateOrderStatus,
 );
 
 export default router;
