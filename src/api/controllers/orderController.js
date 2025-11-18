@@ -1,4 +1,4 @@
-const { v4: uuidv4 } = require("uuid");
+import { uuid } from "node:uuid";
 
 const ORDER_STATUS = Object.freeze({
   PENDING: "pending",
@@ -50,7 +50,7 @@ const createOrder = (req, res) => {
     );
   }
   const order = {
-    orderId: `ORD-${uuidv4().split("-")[0].toUpperCase()}`,
+    orderId: `ORD-${uuid().split("-")[0].toUpperCase()}`,
     customerId,
     placementDate: new Date().toISOString(),
     status: ORDER_STATUS.PENDING,

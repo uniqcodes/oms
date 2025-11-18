@@ -1,7 +1,7 @@
-const express = require("express");
-const { generateToken } = require("./src/api/middleware/auth");
-const orderRoutes = require("./src/api/routes/orderRoutes");
-const { v4: uuidv4 } = require("uuid");
+import express from "express";
+import { generateToken } from "./src/api/middleware/auth";
+import orderRoutes from "./src/api/routes/orderRoutes";
+import { uuid } from "node:uuid";
 
 const app = express();
 app.use(express.json());
@@ -18,7 +18,7 @@ const errorResponse = (res, status, error, message, details = null) => {
 
 // ============== Generat a valid customer id ==============
 app.get("/v1/generate-uid", (req, res) => {
-  const customerId = `user-${uuidv4().split("-")[0]}`;
+  const customerId = `user-${uuid().split("-")[0]}`;
   res.json({ customerId });
 });
 
@@ -63,4 +63,4 @@ app.listen(PORT, () => {
   );
 });
 
-module.exports = app;
+export default app

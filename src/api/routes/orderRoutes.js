@@ -1,8 +1,8 @@
-const express = require("express");
-const router = express.Router();
-const { authenticateToken } = require("../middleware/auth");
-const orderController = require("../controllers/orderController");
+import { Router} from "express";
+import { authenticateToken } from "../middleware/auth";
+import orderController from "../controllers/orderController";
 
+const router = Router();
 // Create Order
 router.post("/", authenticateToken, orderController.createOrder);
 
@@ -31,4 +31,4 @@ router.post(
   orderController.updateOrderStatus
 );
 
-module.exports = router;
+export default router;
